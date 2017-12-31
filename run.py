@@ -139,16 +139,16 @@ log.addHandler(tfh)
 
 
 def finalize_logging():
-    if os.path.isfile("~/logs/musicbot.log"):
+    if os.path.isfile("logs/musicbot.log"):
         log.info("Moving old musicbot log")
         try:
-            if os.path.isfile("~/logs/musicbot.log.last"):
-                os.unlink("~/logs/musicbot.log.last")
-            os.rename("~/logs/musicbot.log", "~/logs/musicbot.log.last")
+            if os.path.isfile("logs/musicbot.log.last"):
+                os.unlink("logs/musicbot.log.last")
+            os.rename("logs/musicbot.log", "logs/musicbot.log.last")
         except:
             pass
 
-    with open("~/logs/musicbot.log", "w+", encoding='utf8') as f:
+    with open("logs/musicbot.log", "w+", encoding='utf8') as f:
         tmpfile.seek(0)
         f.write(tmpfile.read())
         tmpfile.close()
@@ -161,7 +161,7 @@ def finalize_logging():
     log.removeHandler(tfh)
     del tfh
 
-    fh = logging.FileHandler("~/logs/musicbot.log", mode='a')
+    fh = logging.FileHandler("logs/musicbot.log", mode='a')
     fh.setFormatter(logging.Formatter(
         fmt="[%(relativeCreated).9f] %(name)s-%(levelname)s: %(message)s"
     ))
