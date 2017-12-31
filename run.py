@@ -148,7 +148,7 @@ def finalize_logging():
         except:
             pass
 
-    with open("logs/musicbot.log", 'w', encoding='utf8') as f:
+    with open("logs/musicbot.log", "w+", encoding='utf8') as f:
         tmpfile.seek(0)
         f.write(tmpfile.read())
         tmpfile.close()
